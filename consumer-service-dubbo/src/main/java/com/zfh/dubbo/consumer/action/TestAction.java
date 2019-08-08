@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
@@ -33,6 +34,7 @@ public class TestAction {
         consumerService.consumer();
         return "12";
     }
+    @Transactional
     @RequestMapping("/testTransaction")
     public String testTransaction(){
         TransactionSendResult transactionSendResult = null;
