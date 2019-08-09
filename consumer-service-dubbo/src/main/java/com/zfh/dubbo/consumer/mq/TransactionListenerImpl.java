@@ -49,7 +49,7 @@ public class TransactionListenerImpl implements RocketMQLocalTransactionListener
             bizUniNo = ((Map)message.getHeaders().get("PROPERTIES")).get("UNIQ_KEY").toString();
             List<Map> res = jdbcTemplate.query("select * from t_message_transaction where bizUniNo = ?",new Object[]{bizUniNo},new MyRowMappe());
             if(CollectionUtils.isEmpty(res)){
-                //TODO 判断次数，超过一定次数之后再返回rollback
+                //TODO 判断次数，超过一定次数之后再返回rollback，防止应用断网或者重启
                 System.out.println("【rollback】，bizUniNo："+bizUniNo);
                 return RocketMQLocalTransactionState.ROLLBACK;
             }
