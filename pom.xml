@@ -12,6 +12,8 @@
         <module>consumer-service-dubbo</module>
         <module>provider-service-dubbo</module>
         <module>service-api</module>
+        <module>consumer-service-dubbo-tcc</module>
+        <module>provider-service-dubbo-tcc</module>
     </modules>
 
     <parent>
