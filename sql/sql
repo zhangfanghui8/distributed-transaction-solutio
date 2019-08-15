@@ -1,3 +1,4 @@
+################ 事务消息 ##############################################################################
 #  用户表
 CREATE TABLE `user`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -15,3 +16,28 @@ CREATE TABLE `t_message_transaction`  (
   `create_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`bizUniNo`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+########################################################################################################
+
+##################      EasyTransaction         ########################################################
+# 个人钱包
+CREATE TABLE `wallet`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+   `user_id` int(11) NULL DEFAULT NULL,
+   `total_amount` int(11) NOT NULL COMMENT '现金余额',
+   `freeze_amount` int(5) NULL DEFAULT NULL COMMENT '冻结金额',
+   `create_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+   PRIMARY KEY (`id`) USING BTREE
+ ) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+# 订单
+CREATE TABLE `order`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NULL DEFAULT NULL,
+  `remainder` int(11) NOT NULL COMMENT '现金余额',
+  `frozen_amount` int(5) NULL DEFAULT NULL COMMENT '冻结金额',
+  `create_time` datetime(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+########################################################################################################
+

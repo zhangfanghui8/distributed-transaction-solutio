@@ -42,7 +42,23 @@
  操作，当断点到发送消息到rocketmq的那段代码，手动是rocketmq服务器挂掉
  结果：跟预期一样
  
-             
+ 
+ ############### 尝试 分布式事务框架 seata at模式 ########
+ 1，从github上下载seata源码，启动server项目
+ 看到如下日志就说明server启动成功：
+ Connected to the target VM, address: '127.0.0.1:55115', transport: 'socket'
+ 2019-08-15 10:19:31.709 INFO [main]io.seata.common.loader.EnhancedServiceLoader.loadFile:237 -load TransactionStoreManager[FILE] extension by class[io.seata.server.store.file.FileTransactionStoreManager]
+ 2019-08-15 10:19:31.714 INFO [main]io.seata.common.loader.EnhancedServiceLoader.loadFile:237 -load SessionManager[FILE] extension by class[io.seata.server.session.file.FileBasedSessionManager]
+ 2019-08-15 10:19:45.218 INFO [main]io.seata.core.rpc.netty.AbstractRpcRemotingServer.start:179 -Server started ... 
+ 
+ 2，启动项目
+ consumer-service-seata-at， provider-service-seata-at   两个项目
+ 
+ 3，验证分布式事务是否奏效
+ 把consumer-service-seata-at项目中ConsumerServiceImpl的 
+ //验证分布式事务
+ throw new RuntimeException("12");    
+ 代码加上验证
              
 
 
