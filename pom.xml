@@ -27,7 +27,7 @@
     <properties>
         <dubbo-version>2.7.0</dubbo-version>
         <duid-version>1.1.13</duid-version>
-        <dubbo>2.7.0</dubbo>
+        <dubbo>2.7.13</dubbo>
         <tcc>1.2.x</tcc>
         <easytrans>1.3.1</easytrans>
         <seata.version>0.7.1</seata.version>
